@@ -9,10 +9,12 @@ formato_fecha = '%Y-%m-%d'
 dia_anterior = datetime.date.today() - datetime.timedelta(days=1)
 dia_ayer = dia_anterior.strftime(formato_fecha)
 dia_hoy = datetime.date.today().strftime(formato_fecha)
+
 fecha = str(datetime.date.today().strftime(formato_fecha))
 
 hd = 'False'
 url = '{}{}&date={}&hd={}'.format(base_url, api_key, dia_hoy, hd)
 
 peticion = requests.request('GET', url)
+print("Recibiendo la respuesta desde la api...\n")
 print(peticion.text)
